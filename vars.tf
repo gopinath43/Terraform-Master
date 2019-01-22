@@ -12,6 +12,6 @@ variable "PATH_TO_PUBLIC_KEY" {
 variable "AMIS" {
   type = "map"
   default = {
-    ap-southeast-1 = "ami-04677bdaa3c2b6e24"
+    ap-southeast-1 = "ami-8e0205f2"
   }
 }
