@@ -136,6 +136,9 @@ egress {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+   tags = {
+    Name = "AM01_SG"
+  }
 }  
   
   
