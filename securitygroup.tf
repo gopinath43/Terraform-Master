@@ -80,12 +80,12 @@ ingress {
     protocol    = "tcp"
     security_groups = ["${aws_security_group.WEB01_SG.id}"]
   }
-egress {
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
-    security_groups = ["${aws_security_group.DB01_SG.id}"]
-  }
+#egress {
+#    from_port   = 3306
+#    to_port     = 3306
+#    protocol    = "tcp"
+#    security_groups = ["${aws_security_group.DB01_SG.id}"]
+# }
   tags = {
     Name = "APP01_SG"
   }
