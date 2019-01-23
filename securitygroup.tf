@@ -3,7 +3,7 @@
 resource "aws_security_group" "WEB01_SG" {
   vpc_id      = "${aws_vpc.main.id}"
   name        = "WEB01_SG"
-  description = "security group inbound traffic for WEB01 instance"
+  description = "security group inbound and outbound traffic for WEB01 instance"
 
 ingress {
     from_port   = 22
@@ -51,7 +51,7 @@ egress {
 resource "aws_security_group" "APP01_SG" {
   vpc_id      = "${aws_vpc.main.id}"
   name        = "APP01_SG"
-  description = "security group inbound traffic for APP01 instance"
+  description = "security group inbound and outbound traffic for APP01 instance"
 
   ingress {
     from_port   = 22
@@ -80,7 +80,7 @@ ingress {
     protocol    = "tcp"
     security_groups = ["${aws_security_group.WEB01_SG.id}"]
   }
-engress {
+egress {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
