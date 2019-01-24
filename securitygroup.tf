@@ -91,13 +91,15 @@ resource "aws_security_group" "APP01_SG" {
      from_port   = 3306
      to_port     = 3306
      protocol    = "tcp"
-     security_groups = ["${aws_security_group.DB01_SG.id}"]
+#     security_groups = ["${aws_security_group.DB01_SG.id}"]
+	 cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
      from_port   = 22
      to_port     = 22
      protocol    = "tcp"
-     security_groups = ["${aws_security_group.DB01_SG.id}"]
+#    security_groups = ["${aws_security_group.DB01_SG.id}"]
+	 cidr_blocks = ["0.0.0.0/0"]
   }
    egress {
      from_port   = 80
@@ -171,6 +173,8 @@ ingress {
     to_port     = 3306
     protocol    = "tcp"
     security_groups = ["${aws_security_group.APP01_SG.id}"]
+#    cidr_blocks = ["0.0.0.0/0"]
+	
   }
 
 egress {
@@ -192,6 +196,7 @@ egress {
      to_port     = 65535
      protocol    = "tcp"
 	 security_groups = ["${aws_security_group.APP01_SG.id}"]
+#	 cidr_blocks = ["0.0.0.0/0"]
   }
   
   tags = {
